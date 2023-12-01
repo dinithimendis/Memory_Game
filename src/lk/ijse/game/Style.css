@@ -43,3 +43,24 @@ button {
     color: #FFF;
     font-size: 14pt;
 }
+
+board-container {
+    position: relative;
+}
+
+.board,
+.win {
+    width: 70px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, black, red, black);
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+    color: #FFFFFF;
+}
+
+.board {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+}
