@@ -26,8 +26,8 @@ body {
 }
 
 button {
-    background: linear-gradient(to bottom, black, red, black);
-    color: #FFF;
+    background: linear-gradient(to bottom, white, red, white);
+    color: black;
     border-radius: 5px;
     padding: 10px 20px;
     border: 0;
@@ -50,7 +50,7 @@ board-container {
 
 .board,
 .win {
-    background: linear-gradient(to bottom, black, red, black);
+    background: linear-gradient(to bottom, red, black);
     color: #FFFFFF;
     border-radius: 5px;
     box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
