@@ -80,3 +80,53 @@ const startGame = () => {
         selectors.timer.innerText = `time: ${state.totalTime} sec`
     }, 1000)
 }
+
+const flipBackCards = () => {
+    document.querySelectorAll('.card:not(.matched)').forEach(card => {
+        card.classList.remove('flipped')
+    })
+
+    state.flippedCards = 0
+}
+
+const flipCard = card => {
+    state.flippedCards++
+    state.totalFlips++
+
+    if (!state.gameStarted) {
+        startGame()
+    }
+
+    if (state.flippedCards <= 2) {
+        card.classList.add('flipped')
+    }
+
+    if (state.flippedCards === 2) {
+        const flippedCards = document.querySelectorAll('.flipped:not(.matched)')
+
+        if (flippedCards[0].innerText === flippedCards[1].innerText) {
+            flippedCards[0].classList.add('matched')
+            flippedCards[1].classList.add('matched')
+        }
+
+        setTimeout(() => {
+            flipBackCards()
+        }, 1000)
+    }
+
+    // If there are no more cards that we can flip, we won the game
+    if (!document.querySelectorAll('.card:not(.flipped)').length) {
+        setTimeout(() => {
+            selectors.boardContainer.classList.add('flipped')
+            selectors.win.innerHTML = `
+                <span class="win-text">
+                    You won!<br />
+                    with <span class="highlight">${state.totalFlips}</span> moves<br />
+                    under <span class="highlight">${state.totalTime}</span> seconds
+                </span>
+            `
+
+            clearInterval(state.loop)
+        }, 1000)
+    }
+}
