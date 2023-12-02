@@ -50,12 +50,12 @@ board-container {
 
 .board,
 .win {
-    width: 70px;
-    border-radius: 5px;
     background: linear-gradient(to bottom, black, red, black);
+    color: #FFFFFF;
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
     transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
     backface-visibility: hidden;
-    color: #FFFFFF;
 }
 
 .board {
@@ -115,7 +115,7 @@ board-container {
     width: 100%;
     height: 100%;
     text-align: center;
-    background: #FDF8E6;
+    background: red;
     transform: rotateY(180deg) rotateZ(50deg);
 }
 
@@ -129,5 +129,5 @@ board-container {
 }
 
 .highlight {
-    color: #6f00fc;
+    color: #282A3A;
 }
